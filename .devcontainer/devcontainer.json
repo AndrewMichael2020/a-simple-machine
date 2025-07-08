@@ -1,0 +1,10 @@
+{
+  "name": "Simple C Machine",
+  "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu", 
+  "settings": {},
+  "extensions": [
+    "ms-vscode.cpptools"
+  ],
+  "postCreateCommand": "make || true"
+}
+
