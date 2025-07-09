@@ -56,78 +56,6 @@ Run the program and follow the prompt:
 
 ---
 
-# Reverse Polish Notation (RPN) Calculator
-
-This project also includes a simple Reverse Polish Notation (RPN) calculator implemented in C.
-
-## What is RPN?
-Reverse Polish Notation (postfix notation) is a mathematical notation in which every operator follows all of its operands. For example, the infix expression:
-
-    (3 + 4) * 2
-
-In RPN becomes:
-
-    3 4 + 2 *
-
-RPN is evaluated left to right:
-- Push operands onto a stack.
-- When an operator is encountered, pop the top two operands, apply the operator, and push the result back.
-
-## Historical Note
-- **RPN** was popularized by early Hewlett-Packard calculators (HP-35, HP-41C, etc.) and is still used in some scientific calculators today for its efficiency and lack of parentheses.
-- **Memory interpreters** and direct memory manipulation were common in early programming languages like FORTRAN and in assembly language programming, where programmers often worked directly with memory addresses and values.
-- **Assemblers** and low-level languages often used similar stack-based or memory-based approaches for evaluating expressions and managing data.
-
-## Usage
-Build the calculator with:
-
-    make rpn_calculator
-
-Run it with:
-
-    ./rpn_calculator
-
-You will see a prompt like:
-
-    Reverse Polish Notation (RPN) Calculator
-    --------------------------------------
-    Enter a space-separated RPN expression.
-      Example: 3 4 + 2 *
-      Example: 15 7 1 1 + - / 3 * 2 1 1 + + -
-    Supported operators: +  -  *  /
-    Operands and results are integers.
-    >
-
-## Example Inputs and Outputs
-
-Input:
-
-    3 4 + 2 *
-
-Output:
-
-    Result: 14
-
-Input:
-
-    15 7 1 1 + - / 3 * 2 1 1 + + -
-
-Output:
-
-    Result: 5
-
-## Input/Output Expectations
-- Input: A single line, space-separated, containing integers and operators (+, -, *, /).
-- Output: The result of the RPN expression, or an error message if the input is invalid.
-
-## Why a Stack?
-A stack is the ideal data structure for RPN evaluation because it allows pushing operands and popping them for operations in the correct order (Last-In-First-Out).
-
-## Author
-[Your Name]
-
----
-
 # C Preprocessor Examples
 
 This project also includes a demonstration of the C preprocessor's #include directive in `preprocessor_examples.c`.
@@ -236,3 +164,72 @@ You will see output for several test values, showing the stack in action for eac
 
 ## Why is the Stack Important?
 Each recursive call is placed on the stack. If the recursion is too deep (e.g., n > 100), the program returns -1 to avoid stack overflow. This demonstrates how recursion uses the stack in C.
+
+--- 
+
+# Reverse Polish Notation (RPN) Calculator
+
+This project also includes a simple Reverse Polish Notation (RPN) calculator implemented in C.
+
+## What is RPN?
+Reverse Polish Notation (postfix notation) is a mathematical notation in which every operator follows all of its operands. For example, the infix expression:
+
+    (3 + 4) * 2
+
+In RPN becomes:
+
+    3 4 + 2 *
+
+RPN is evaluated left to right:
+- Push operands onto a stack.
+- When an operator is encountered, pop the top two operands, apply the operator, and push the result back.
+
+## Historical Note
+- **RPN** was popularized by early Hewlett-Packard calculators (HP-35, HP-41C, etc.) and is still used in some scientific calculators today for its efficiency and lack of parentheses.
+- **Memory interpreters** and direct memory manipulation were common in early programming languages like FORTRAN and in assembly language programming, where programmers often worked directly with memory addresses and values.
+- **Assemblers** and low-level languages often used similar stack-based or memory-based approaches for evaluating expressions and managing data.
+
+## Usage
+Build the calculator with:
+
+    make rpn_calculator
+
+Run it with:
+
+    ./rpn_calculator
+
+You will see a prompt like:
+
+    Reverse Polish Notation (RPN) Calculator
+    --------------------------------------
+    Enter a space-separated RPN expression.
+      Example: 3 4 + 2 *
+      Example: 15 7 1 1 + - / 3 * 2 1 1 + + -
+    Supported operators: +  -  *  /
+    Operands and results are integers.
+    >
+
+## Example Inputs and Outputs
+
+Input:
+
+    3 4 + 2 *
+
+Output:
+
+    Result: 14
+
+Input:
+
+    15 7 1 1 + - / 3 * 2 1 1 + + -
+
+Output:
+
+    Result: 5
+
+## Input/Output Expectations
+- Input: A single line, space-separated, containing integers and operators (+, -, *, /).
+- Output: The result of the RPN expression, or an error message if the input is invalid.
+
+## Why a Stack?
+A stack is the ideal data structure for RPN evaluation because it allows pushing operands and popping them for operations in the correct order (Last-In-First-Out).
