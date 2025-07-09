@@ -10,6 +10,9 @@ preprocessor_examples: preprocessor_examples.c
 simplest_recursive_function: simplest_recursive_function.c
 	gcc -o simplest_recursive_function simplest_recursive_function.c
 
+concat: concat.c
+	gcc -o concat concat.c
+
 clean:
-	rm -f simple_machine rpn_calculator preprocessor_examples simplest_recursive_function
+	rm -f simple_machine rpn_calculator preprocessor_examples simplest_recursive_function concat
 

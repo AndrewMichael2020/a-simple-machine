@@ -1,14 +1,27 @@
-# Simple Machine Interpreter
+# A Simple Interpreter and Classic CS Concepts in C
+
+This repository is a collection of educational C programs that demonstrate classic computer science concepts, including memory interpreters, recursion, stack usage, the C preprocessor, string manipulation, and a human-friendly Touring Machine. Each program is self-contained and includes detailed prompts, debug output, and historical context.
 
 ---
 
-# Interpreter in C and Flashback to Fortrun
+## Table of Contents
+- [Simple Machine Interpreter](#simple-machine-interpreter)
+- [C Preprocessor Examples](#c-preprocessor-examples)
+- [Simplest Recursive Function: sumseries](#simplest-recursive-function-sumseries)
+- [Reverse Polish Notation (RPN) Calculator](#reverse-polish-notation-rpn-calculator)
+- [Implementing Python Functions in C: py_rstrip and py_lstrip](#implementing-python-functions-in-c-py_rstrip-and-py_lstrip)
+- [Touring Machine (Human-Friendly Turing Machine)](#touring-machine-human-friendly-turing-machine)
+- [Build and Cleanup](#build-and-cleanup)
 
-This project implements a minimalistic memory interpreter inspired by FORTRAN-style pseudocode (Fortrun).
+---
 
-## Features
+## Simple Machine Interpreter
+
+A minimalistic memory interpreter inspired by FORTRAN-style pseudocode (Fortrun).
+
+### Features
 - Simulates a 256-byte memory array, initialized to zero.
-- Accepts instructions from the user in the form:
+- Accepts instructions in the form:
 
       ADDR OPCODE VALUE
 
@@ -19,10 +32,10 @@ This project implements a minimalistic memory interpreter inspired by FORTRAN-st
 - Supports comments (lines starting with `*`) and exit (`X`).
 - After each instruction, prints the memory in ASCII and hex views.
 
-## Fortrun Ties
+### Fortrun Ties
 The memory model and operations are inspired by classic FORTRAN pseudocode, as shown in the comments of `dump_memory()` in the code. The interpreter mimics the way FORTRAN would manipulate a character array for simple memory operations.
 
-## Example: Storing a String
+### Example: Storing a String
 To store the ASCII string `I am Andrew` in memory, enter the following instructions:
 
 ```
@@ -42,7 +55,7 @@ To store the ASCII string `I am Andrew` in memory, enter the following instructi
 
 This will result in memory containing the null-terminated string `I am Andrew`.
 
-## Usage
+### Usage
 Run the program and follow the prompt:
 
 ```
@@ -60,19 +73,20 @@ Run the program and follow the prompt:
 
 ---
 
-# C Preprocessor Examples
+## C Preprocessor Examples
 
-This project also includes a demonstration of the C preprocessor's #include directive in `preprocessor_examples.c`.
+Demonstrates the use of the C preprocessor, including `#include`, `#define`, and `#ifdef`.
 
-## What is the C Preprocessor?
+### What is the C Preprocessor?
 The C preprocessor runs before compilation. It processes directives (lines starting with #), such as `#include`, `#define`, and `#ifdef`. The `#include` directive tells the preprocessor to insert the contents of another file at that point in the code. This enables code reuse, modularity, and access to library functions.
 
-## What does `preprocessor_examples.c` show?
+### What does `preprocessor_examples.c` show?
 - How to include standard headers (e.g., `<stdio.h>`, `<stdlib.h>`)
 - How to include a user-defined header (e.g., `"myheader.h"`)
+- How to use `#ifdef` and `#define` for conditional compilation
 - Comments in the code explain why each include is used
 
-## How to Build and Run
+### How to Build and Run
 Build the example with:
 
     make preprocessor_examples
@@ -85,8 +99,9 @@ You should see output like:
 
     Hello, world!
     Converted string to int: 123
+    EXAMPLE_FLAG is NOT defined. This code is included instead.
 
-## How to See the Preprocessed C Code
+### How to See the Preprocessed C Code
 To see the C code after the preprocessor has run (with all includes expanded), use:
 
     gcc -E preprocessor_examples.c -o preprocessor_examples.i
@@ -95,9 +110,7 @@ This will create a file `preprocessor_examples.i` containing the fully expanded 
 
     head -40 preprocessor_examples.i
 
-This is useful for understanding what the compiler actually sees after preprocessing.
-
-## How to Show #ifdef Output
+### How to Show #ifdef Output
 To see how `#ifdef` changes the compiled program, try compiling and running with and without the flag:
 
 **Default (EXAMPLE_FLAG not defined):**
@@ -105,41 +118,29 @@ To see how `#ifdef` changes the compiled program, try compiling and running with
     make preprocessor_examples
     ./preprocessor_examples
 
-Output:
-
-    Hello, world!
-    Converted string to int: 123
-    EXAMPLE_FLAG is NOT defined. This code is included instead.
-
 **With EXAMPLE_FLAG defined:**
 
     gcc -DEXAMPLE_FLAG preprocessor_examples.c -o preprocessor_examples
     ./preprocessor_examples
 
-Output:
-
-    Hello, world!
-    Converted string to int: 123
-    EXAMPLE_FLAG is defined! This code is included.
-
 This demonstrates how #ifdef and #define can be used to include or exclude code at compile time.
 
 ---
 
-# Simplest Recursive Function and the Use of Memory Stack: sumseries
+## Simplest Recursive Function: sumseries
 
-This project includes a demonstration of recursion in C with the function `sumseries`.
+Demonstrates recursion and stack usage in C with the function `sumseries`.
 
-## What is Recursion?
+### What is Recursion?
 Recursion is when a function calls itself to solve a smaller instance of the same problem. Each recursive call is placed on the call stack, and the stack unwinds as base cases are reached.
 
-## What does sumseries do?
+### What does sumseries do?
 - Computes the sum of all numbers from 1 to n (inclusive).
 - If n < 1, returns 0.
 - If n > 100, returns -1 (to avoid stack overflow).
 - Prints the stack depth and value at each call and return, so you can see how the stack grows and shrinks.
 
-## Example Output
+### Example Output
 ```
 Calling sumseries(5):
 Entering sumseries(n=5) at stack depth 1
@@ -155,10 +156,10 @@ Returning 15 from sumseries(n=5) at depth 1
 sumseries(5) = 15
 ```
 
-## How to Build and Run
+### How to Build and Run
 Build with:
 
-    gcc simplest_recursive_function.c -o simplest_recursive_function
+    make simplest_recursive_function
 
 Run with:
 
@@ -166,16 +167,16 @@ Run with:
 
 You will see output for several test values, showing the stack in action for each call.
 
-## Why is the Stack Important?
+### Why is the Stack Important?
 Each recursive call is placed on the stack. If the recursion is too deep (e.g., n > 100), the program returns -1 to avoid stack overflow. This demonstrates how recursion uses the stack in C.
 
---- 
+---
 
-# Reverse Polish Notation (RPN) Calculator
+## Reverse Polish Notation (RPN) Calculator
 
-This project also includes a simple Reverse Polish Notation (RPN) calculator implemented in C.
+Implements a simple Reverse Polish Notation (RPN) calculator in C.
 
-## What is RPN?
+### What is RPN?
 Reverse Polish Notation (postfix notation) is a mathematical notation in which every operator follows all of its operands. For example, the infix expression:
 
     (3 + 4) * 2
@@ -188,12 +189,12 @@ RPN is evaluated left to right:
 - Push operands onto a stack.
 - When an operator is encountered, pop the top two operands, apply the operator, and push the result back.
 
-## Historical Note
+### Historical Note
 - **RPN** was popularized by early Hewlett-Packard calculators (HP-35, HP-41C, etc.) and is still used in some scientific calculators today for its efficiency and lack of parentheses.
 - **Memory interpreters** and direct memory manipulation were common in early programming languages like FORTRAN and in assembly language programming, where programmers often worked directly with memory addresses and values.
 - **Assemblers** and low-level languages often used similar stack-based or memory-based approaches for evaluating expressions and managing data.
 
-## Usage
+### Usage
 Build the calculator with:
 
     make rpn_calculator
@@ -213,7 +214,7 @@ You will see a prompt like:
     Operands and results are integers.
     >
 
-## Example Inputs and Outputs
+### Example Inputs and Outputs
 
 Input:
 
@@ -231,9 +232,91 @@ Output:
 
     Result: 5
 
-## Input/Output Expectations
+### Input/Output Expectations
 - Input: A single line, space-separated, containing integers and operators (+, -, *, /).
 - Output: The result of the RPN expression, or an error message if the input is invalid.
 
-## Why a Stack?
+### Why a Stack?
 A stack is the ideal data structure for RPN evaluation because it allows pushing operands and popping them for operations in the correct order (Last-In-First-Out).
+
+---
+
+## Implementing Python Functions in C: py_rstrip and py_lstrip
+
+Demonstrates how to remove whitespace from the end or beginning of a string in C, similar to Python's `rstrip()` and `lstrip()`.
+
+### py_rstrip
+- Removes trailing spaces from a mutable string.
+- Modifies the string in place using pointers.
+- Prints debug information showing how memory is changed.
+
+### py_lstrip
+- Removes leading whitespace (spaces, tabs, newlines) from a mutable string.
+- Modifies the string in place using pointers and `memmove`.
+- Prints debug information showing how memory is changed.
+
+---
+
+## Touring Machine (Human-Friendly Turing Machine)
+
+A simplified, interactive Turing Machine that operates on a 256-byte memory tape. Accepts human-friendly instructions and prints detailed debug output.
+
+### Features
+- Memory: 256 bytes, all initialized to zero.
+- Head: Keeps track of the current position (starts at 0).
+- Instructions:
+  - `STORE <value>`: Store value (0-255) at the current position.
+  - `RIGHT`: Move the head right.
+  - `LEFT`: Move the head left.
+  - `PRINT`: Print the current memory as a string, hex, and addresses.
+  - `END`: End input and print the memory.
+- Prints the memory, hex values, and addresses after each command.
+- Shows the head position and address in debug output.
+
+### Example Session
+```
+[Input] > STORE 66
+[Action] Storing value 66 ('B') at position 0
+[Debug] Head at position 0 (address 0x7fff7423c680), memory so far: 'B'
+[Input] > RIGHT
+[Action] Moved head right to position 1
+[Debug] Head at position 1 (address 0x7fff7423c681), memory so far: 'B'
+[Input] > STORE 114
+[Action] Storing value 114 ('r') at position 1
+[Debug] Head at position 1 (address 0x7fff7423c681), memory so far: 'Br'
+[Input] > END
+[End] Memory base address: 0x7fff7423c680
+[End] Head pointer: 0x7fff7423c681 (position 1)
+[End] Final memory as string: '
+Br'
+[End] Final memory as hex: 42 72 
+[End] Final memory addresses: 0x7fff7423c680 0x7fff7423c681 
+Memory:
+Br
+Memory as hex: 42 72 
+Memory addresses: 0x7fff7423c680 0x7fff7423c681 
+```
+
+---
+
+## Build and Cleanup
+
+To build all programs, use:
+
+    make
+
+To build a specific program, use:
+
+    make <target>
+
+For example:
+
+    make touring_machine
+
+To clean up all executables, use:
+
+    make clean
+
+---
+
+Each program is self-contained and demonstrates a key concept in C and computer science. Explore the code and run the examples to deepen your understanding!
