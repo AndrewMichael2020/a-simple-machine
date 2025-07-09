@@ -126,7 +126,7 @@ This demonstrates how #ifdef and #define can be used to include or exclude code 
 
 ---
 
-# Simplest Recursive Function: sumseries
+# Simplest Recursive Function and the Use of Memory Stack: sumseries
 
 This project includes a demonstration of recursion in C with the function `sumseries`.
 
