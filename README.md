@@ -2,7 +2,7 @@
 
 ---
 
-# Interpreter in C and Fortrun
+# Interpreter in C and Flashback to Fortrun
 
 This project implements a minimalistic memory interpreter inspired by FORTRAN-style pseudocode (Fortrun).
 
