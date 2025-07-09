@@ -1,6 +1,6 @@
-# A Simple Interpreter and Classic CS Concepts in C
+# Andrew M's Simple Interpreter and Classic CS Concepts in C
 
-This repository is a collection of educational C programs that demonstrate classic computer science concepts, including memory interpreters, recursion, stack usage, the C preprocessor, string manipulation, and a human-friendly Touring Machine. Each program is self-contained and includes detailed prompts, debug output, and historical context.
+This repository is a collection of educational C programs by Andrew M. that demonstrate classic computer science concepts, including memory interpreters, recursion, stack usage, the C preprocessor, string manipulation, and a human-friendly Touring Machine. Each program is self-contained and includes detailed prompts, debug output, and historical context.
 
 ---
 

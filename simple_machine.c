@@ -32,7 +32,7 @@
  *      11 = 0
  *     This will result in memory containing the null-terminated string "I am Andrew".
  *
- * Author: [Your Name]
+ * Author: Andrew M.
  * Date: 2025
  */
 
