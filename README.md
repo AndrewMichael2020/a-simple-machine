@@ -1,5 +1,9 @@
 # Simple Machine Interpreter
 
+---
+
+# Interpreter in C and Fortrun
+
 This project implements a minimalistic memory interpreter inspired by FORTRAN-style pseudocode (Fortrun).
 
 ## Features
