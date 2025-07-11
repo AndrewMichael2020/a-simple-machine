@@ -1,4 +1,4 @@
-all: simple_machine rpn_calculator preprocessor_examples simplest_recursive_function concat linked_list_delete linked_list_reverse py_rstrip py_lstrip touring_machine union_demo hash_table_lookup binary_tree_wordcount point_oop_demo
+all: simple_machine rpn_calculator preprocessor_examples simplest_recursive_function concat linked_list_delete linked_list_reverse py_rstrip py_lstrip touring_machine union_demo hash_table_lookup binary_tree_wordcount point_oop_demo pystr_demo pylist_demo pydict_demo
 
 simple_machine: simple_machine.c
 	gcc -o simple_machine simple_machine.c
@@ -42,6 +42,15 @@ binary_tree_wordcount: binary_tree_wordcount.c
 point_oop_demo: point_oop_demo.c
 	gcc -o point_oop_demo point_oop_demo.c -lm
 
+pystr_demo: pystr_demo.c
+	gcc -o pystr_demo pystr_demo.c
+
+pylist_demo: pylist_demo.c
+	gcc -o pylist_demo pylist_demo.c
+
+pydict_demo: pydict_demo.c
+	gcc -o pydict_demo pydict_demo.c
+
 clean:
-	rm -f simple_machine rpn_calculator preprocessor_examples simplest_recursive_function concat linked_list_delete linked_list_reverse py_rstrip py_lstrip touring_machine union_demo hash_table_lookup binary_tree_wordcount point_oop_demo
+	rm -f simple_machine rpn_calculator preprocessor_examples simplest_recursive_function concat linked_list_delete linked_list_reverse py_rstrip py_lstrip touring_machine union_demo hash_table_lookup binary_tree_wordcount point_oop_demo pystr_demo pylist_demo pydict_demo
 

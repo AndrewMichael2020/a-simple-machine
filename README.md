@@ -319,4 +319,36 @@ To clean up all executables, use:
 
 ---
 
+## Python-like Dictionary Class in C: pydict_demo.c
+
+This tutorial demonstrates a dynamic dictionary type in C, inspired by Python's `dict` class. It supports put, get, print, and length operations, and includes detailed debug output to illustrate memory management and dictionary operations.
+
+- `pydict_put(dct, key, value)`: Add or update a key-value pair.
+- `pydict_get(dct, key)`: Retrieve the value for a key (returns NULL if not found).
+- `pydict_print(dct)`: Print the dictionary contents in Python-like format.
+- `pydict_len(dct)`: Return the number of key-value pairs.
+- `pydict_del(dct)`: Free all memory used by the dictionary.
+
+Example usage:
+
+```
+struct pydict * dct = pydict_new();
+pydict_put(dct, "z", "Catch phrase");
+pydict_print(dct);
+pydict_put(dct, "z", "W");
+pydict_print(dct);
+pydict_put(dct, "y", "B");
+pydict_put(dct, "c", "C");
+pydict_put(dct, "a", "D");
+pydict_print(dct);
+printf("Length =%d\n",pydict_len(dct));
+printf("z=%s\n", pydict_get(dct, "z"));
+printf("x=%s\n", pydict_get(dct, "x"));
+pydict_del(dct);
+```
+
+This is a foundation for more advanced dictionary types in C, and demonstrates how to manage key-value pairs and memory safely.
+
+---
+
 Each program is self-contained and demonstrates a key concept in C and computer science. Explore the code and run the examples to deepen your understanding!
