@@ -351,4 +351,37 @@ This is a foundation for more advanced dictionary types in C, and demonstrates h
 
 ---
 
+## Encapsulated Python-like Dictionary Class in C: map_encapsulation_demo.c
+
+This tutorial demonstrates encapsulation and OOP-like method binding in C, inspired by Python's `dict` class and dunder naming conventions. The `Map` struct uses function pointers to simulate methods, with all internal data hidden and only dunder-named methods accessible.
+
+- `Map_new()`: Create a new Map object.
+- `__Map_put(map, key, value)`: Add or update a key-value pair.
+- `__Map_get(map, key)`: Retrieve the value for a key (returns NULL if not found).
+- `__Map_size(map)`: Return the number of key-value pairs.
+- `__Map_dump(map)`: Print the dictionary contents in Python-like format.
+- `__Map_del(map)`: Free all memory used by the Map.
+
+### Example usage:
+
+```c
+struct Map * map = Map_new();
+__Map_put(map, "z", "Catch phrase");
+__Map_dump(map);
+__Map_put(map, "z", "W");
+__Map_dump(map);
+__Map_put(map, "y", "B");
+__Map_put(map, "c", "C");
+__Map_put(map, "a", "D");
+__Map_dump(map);
+printf("Length =%d\n", __Map_size(map));
+printf("z=%s\n", __Map_get(map, "z"));
+printf("x=%s\n", __Map_get(map, "x"));
+__Map_del(map);
+```
+
+This example matches the output and usage of the Python-like dict class, but with all internals hidden and only dunder-named methods exposed. The code demonstrates encapsulation, method pointers, and introspective printing for educational clarity.
+
+---
+
 Each program is self-contained and demonstrates a key concept in C and computer science. Explore the code and run the examples to deepen your understanding!
